@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+    id="com.tiago.dbeaver.dracula.feature"
+    label="DBeaver Dracula Theme"
+    version="1.0.0"
+    provider-name="Tiago Ribeiro">
+
+    <description>
+        Tema Dracula para o DBeaver Community.
+    </description>
+
+    <plugin
+        id="com.tiago.dbeaver.dracula"
+        download-size="0"
+        install-size="0"
+        version="1.0.0"
+        unpack="false"/>
+</feature>

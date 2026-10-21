@@ -1,0 +1,199 @@
+/* =========================================================
+   DBeaver Dracula Theme
+   ========================================================= */
+
+/* Base: tema escuro do Eclipse + folhas escuras contribuídas pelos
+   plugins do DBeaver. Elas só são ligadas ao tema e4_dark via
+   plugin.xml, então precisam ser importadas aqui explicitamente. */
+@import url("platform:/plugin/org.eclipse.ui.themes/css/e4-dark_linux.css");
+@import url("platform:/plugin/org.eclipse.ui.themes/css/dark/e4-dark_preferencestyle.css");
+@import url("platform:/plugin/org.eclipse.ui.editors/css/e4-dark_preferencestyle.css");
+@import url("platform:/plugin/org.eclipse.gef/css/gef_dark.css");
+@import url("platform:/plugin/org.jkiss.dbeaver.core/css/e4-dark_dbeaver_prefstyle.css");
+@import url("platform:/plugin/org.jkiss.dbeaver.ui.ai/css/e4-dark_ai_prefstyle.css");
+@import url("platform:/plugin/org.jkiss.dbeaver.ui.editors.data/css/e4-dark-data-editor.css");
+@import url("platform:/plugin/org.jkiss.dbeaver.ui.editors.erd/css/e4-dark-erd-editor.css");
+@import url("platform:/plugin/org.jkiss.dbeaver.ui.editors.sql/css/e4-dark-sql-editor.css");
+
+/* Paleta base
+   Fundo principal:      #282A36
+   Fundo secundário:     #21222C
+   Fundo elevado:        #303341
+   Seleção:              #44475A
+   Texto:                #F8F8F2
+   Comentário:           #6272A4
+   Cyan:                 #8BE9FD
+   Verde:                #50FA7B
+   Laranja:              #FFB86C
+   Rosa:                 #FF79C6
+   Roxo:                 #BD93F9
+   Vermelho:             #FF5555
+   Amarelo:              #F1FA8C
+*/
+
+/* Janela principal e composites */
+Shell,
+Composite,
+ScrolledComposite {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+/* Labels e textos */
+Label {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+/* Árvores: Connections, Projects, Files */
+Tree {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+Tree:focus {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+/* Listas */
+List {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+/* Tabelas e parte da grade de resultados */
+Table {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+/* Campos de texto */
+Text {
+    background-color: #21222C;
+    color: #F8F8F2;
+}
+
+/* Combobox */
+Combo {
+    background-color: #21222C;
+    color: #F8F8F2;
+}
+
+/* Botões */
+Button {
+    background-color: #303341;
+    color: #F8F8F2;
+}
+
+/* Barras de ferramentas */
+ToolBar {
+    background-color: #21222C;
+    color: #F8F8F2;
+}
+
+ToolItem {
+    background-color: #21222C;
+    color: #F8F8F2;
+}
+
+/* Barras de status */
+StatusLine {
+    background-color: #21222C;
+    color: #F8F8F2;
+}
+
+/* Abas CTabFolder */
+CTabFolder {
+    background-color: #21222C;
+    color: #F8F8F2;
+    swt-unselected-tabs-color: #21222C;
+    swt-selected-tab-fill: #282A36;
+    swt-simple: false;
+    swt-mru-visible: true;
+}
+
+CTabItem {
+    background-color: #21222C;
+    color: #BFBFBF;
+}
+
+CTabItem:selected {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+/* Separadores */
+Sash {
+    background-color: #44475A;
+}
+
+/* Menus */
+Menu {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+MenuItem {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+/* Grupos */
+Group {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+/* ExpandBar */
+ExpandBar {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+ExpandItem {
+    background-color: #303341;
+    color: #F8F8F2;
+}
+
+/* Progress bars */
+ProgressBar {
+    background-color: #21222C;
+}
+
+/* Views e partes do Workbench */
+.MPart {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+.MPartStack {
+    background-color: #21222C;
+    color: #F8F8F2;
+}
+
+.MPartStack.active {
+    background-color: #21222C;
+}
+
+/* Área superior */
+.MTrimBar {
+    background-color: #21222C;
+    color: #F8F8F2;
+}
+
+.MToolControl {
+    background-color: #21222C;
+    color: #F8F8F2;
+}
+
+/* Perspective switcher */
+.MPerspectiveStack {
+    background-color: #21222C;
+}
+
+/* Status inferior */
+#org-eclipse-ui-trim-status {
+    background-color: #21222C;
+    color: #F8F8F2;
+}

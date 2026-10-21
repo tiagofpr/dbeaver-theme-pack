@@ -1,0 +1,10 @@
+dist/
+bin/
+target/
+build/
+.metadata/
+.settings/
+.idea/
+.vscode/
+*.log
+*.tmp
