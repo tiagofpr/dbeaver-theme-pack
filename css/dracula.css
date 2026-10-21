@@ -15,6 +15,86 @@
 @import url("platform:/plugin/org.jkiss.dbeaver.ui.editors.erd/css/e4-dark-erd-editor.css");
 @import url("platform:/plugin/org.jkiss.dbeaver.ui.editors.sql/css/e4-dark-sql-editor.css");
 
+/* =========================================================
+   Editores de texto (fundo, seleção, linha atual, numeração)
+   Mesmo seletor de org.jkiss.dbeaver.core/css/e4-dark_dbeaver_prefstyle.css:
+   como vem depois, esta regra substitui a original por inteiro,
+   por isso todas as chaves precisam estar presentes.
+   ========================================================= */
+IEclipsePreferences#org-eclipse-ui-editors:org-eclipse-ui-themes {
+    preferences:
+        'AbstractTextEditor.Color.Background.SystemDefault=false'
+        'AbstractTextEditor.Color.SelectionForeground.SystemDefault=false'
+        'AbstractTextEditor.Color.SelectionBackground.SystemDefault=false'
+        'AbstractTextEditor.Color.Background=40,42,54'
+        'AbstractTextEditor.Color.Foreground.SystemDefault=false'
+        'AbstractTextEditor.Color.SelectionBackground=68,71,90'
+        'AbstractTextEditor.Color.SelectionForeground=248,248,242'
+        'AbstractTextEditor.Color.Foreground=248,248,242'
+        'AbstractTextEditor.Color.FindScope=98,114,164'
+        'asOccurencesIndicationColor=68,71,90'
+        'breakpointIndicationColor=189,147,249'
+        'currentIPColor=68,71,90'
+        'currentLineColor=52,55,70'
+        'deletionIndicationColor=255,85,85'
+        'filteredSearchResultIndicationColor=98,114,164'
+        'hyperlinkColor=139,233,253'
+        'hyperlinkColor.SystemDefault=false'
+        'infoIndicationColor=139,233,253'
+        'lineNumberColor=98,114,164'
+        'linked.slave.color=189,147,249'
+        'matchingTagIndicationColor=68,71,90'
+        'occurrenceIndicationColor=68,71,90'
+        'overrideIndicatorColor=80,250,123'
+        'printMarginColor=68,71,90'
+        'searchResultHighlighting=false'
+        'searchResultIndication=true'
+        'searchResultIndicationColor=98,114,164'
+        'searchResultTextStyle=BOX'
+        'secondaryIPColor=68,71,90'
+        'spellingIndicationColor=255,121,198'
+        'writeOccurrenceIndicationColor=98,114,164'
+        'org.eclipse.ui.editors.stickyLinesSeparatorColor=68,71,90'
+}
+
+#org-eclipse-e4-ui-compatibility-editor Canvas,
+#org-eclipse-e4-ui-compatibility-editor Canvas > * {
+    background-color: #282A36;
+}
+
+/* =========================================================
+   Editor SQL (realce de sintaxe)
+   Mesmo seletor de org.jkiss.dbeaver.ui.editors.sql/css/e4-dark-sql-editor.css
+   ========================================================= */
+IEclipsePreferences#org-eclipse-ui-workbench:dbeaver-sql-editor {
+    preferences:
+        'org.jkiss.dbeaver.sql.editor.color.schema.foreground=189,147,249'
+        'org.jkiss.dbeaver.sql.editor.color.column.derived.foreground=255,184,108'
+        'org.jkiss.dbeaver.sql.editor.color.column.foreground=248,248,242'
+        'org.jkiss.dbeaver.sql.editor.color.table.alias.foreground=139,233,253'
+        'org.jkiss.dbeaver.sql.editor.color.table.foreground=139,233,253'
+        'org.jkiss.dbeaver.sql.editor.color.composite.field.foreground=255,184,108'
+        'org.jkiss.dbeaver.sql.editor.color.semanticError.foreground=255,85,85'
+
+        'org.jkiss.dbeaver.sql.editor.color.text.foreground=248,248,242'
+        'org.jkiss.dbeaver.sql.editor.color.text.background=40,42,54'
+        'org.jkiss.dbeaver.sql.editor.color.disabled.background=33,34,44'
+        'org.jkiss.dbeaver.sql.editor.color.keyword.foreground=255,121,198'
+        'org.jkiss.dbeaver.sql.editor.color.datatype.foreground=139,233,253'
+        'org.jkiss.dbeaver.sql.editor.color.function.foreground=80,250,123'
+        'org.jkiss.dbeaver.sql.editor.color.string.foreground=241,250,140'
+        'org.jkiss.dbeaver.sql.editor.color.number.foreground=189,147,249'
+        'org.jkiss.dbeaver.sql.editor.color.comment.foreground=98,114,164'
+        'org.jkiss.dbeaver.sql.editor.color.delimiter.foreground=248,248,242'
+        'org.jkiss.dbeaver.sql.editor.color.parameter.foreground=255,184,108'
+        'org.jkiss.dbeaver.sql.editor.color.sqlVariable.foreground=255,184,108'
+        'org.jkiss.dbeaver.sql.editor.color.command.foreground=189,147,249'
+        'org.jkiss.dbeaver.sql.editor.color.aiSuggestion.foreground=98,114,164'
+        'org.jkiss.dbeaver.sql.editor.color.aiSuggestion.background=52,55,70'
+        'org.jkiss.dbeaver.ui.general.color.warning.foreground=241,250,140'
+        'org.jkiss.dbeaver.ui.general.color.error.foreground=255,85,85'
+}
+
 /* Paleta base
    Fundo principal:      #282A36
    Fundo secundário:     #21222C

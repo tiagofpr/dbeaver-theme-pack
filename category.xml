@@ -2,9 +2,9 @@
 
 <site>
     <feature
-        url="features/com.tiago.dbeaver.dracula.feature_1.0.0.jar"
+        url="features/com.tiago.dbeaver.dracula.feature_0.0.0.jar"
         id="com.tiago.dbeaver.dracula.feature"
-        version="1.0.0">
+        version="0.0.0">
         <category name="dbeaver-dracula"/>
     </feature>
 

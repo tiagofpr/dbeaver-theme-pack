@@ -38,7 +38,7 @@ detect_dbeaver() {
 
 DBEAVER_HOME="$(detect_dbeaver)"
 
-if pgrep -f "$DBEAVER_HOME/dbeaver" >/dev/null || pgrep -x dbeaver >/dev/null; then
+if pgrep -u "$USER" -f "^$DBEAVER_HOME/+(jre/bin/java|dbeaver)" >/dev/null || pgrep -u "$USER" -x dbeaver >/dev/null; then
     fail "feche o DBeaver antes de continuar"
 fi
 

@@ -8,3 +8,8 @@ build/
 .vscode/
 *.log
 *.tmp
+
+# Exportações/preferências do DBeaver podem conter credenciais e tokens
+*.epf
+*.prefs
+DBeaverData/

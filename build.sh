@@ -34,17 +34,23 @@ if command -v xmllint >/dev/null; then
     xmllint --noout "$ROOT/plugin.xml" "$ROOT/feature/feature.xml" "$ROOT/category.xml"
 fi
 
+# Qualificador de build (convenção Eclipse): cada build tem versão maior que
+# a anterior, assim o p2 nunca reaproveita um artefato antigo do cache.
+QUALIFIED="$VERSION.v$(date +%Y%m%d%H%M%S)"
+
 # 2. Limpeza
 rm -rf "$DIST"
-mkdir -p "$DIST/site/plugins" "$DIST/site/features"
+mkdir -p "$DIST/site/plugins" "$DIST/site/features" "$DIST/tmp"
 
 # 3. Plugin
-PLUGIN_JAR="$DIST/site/plugins/${BUNDLE_ID}_${VERSION}.jar"
-(cd "$ROOT" && jar --create --file "$PLUGIN_JAR" --manifest META-INF/MANIFEST.MF plugin.xml css)
-cp "$PLUGIN_JAR" "$DIST/"
+sed "s/^Bundle-Version: .*/Bundle-Version: $QUALIFIED/" "$ROOT/META-INF/MANIFEST.MF" > "$DIST/tmp/MANIFEST.MF"
+PLUGIN_JAR="$DIST/site/plugins/${BUNDLE_ID}_${QUALIFIED}.jar"
+(cd "$ROOT" && jar --create --file "$PLUGIN_JAR" --manifest "$DIST/tmp/MANIFEST.MF" plugin.xml css)
+cp "$PLUGIN_JAR" "$DIST/${BUNDLE_ID}_${VERSION}.jar"
 
 # 4. Feature
-(cd "$ROOT/feature" && jar --create --file "$DIST/site/features/${FEATURE_ID}_${VERSION}.jar" feature.xml)
+sed "s/version=\"$VERSION\"/version=\"$QUALIFIED\"/g" "$ROOT/feature/feature.xml" > "$DIST/tmp/feature.xml"
+(cd "$DIST/tmp" && jar --create --file "$DIST/site/features/${FEATURE_ID}_${QUALIFIED}.jar" feature.xml)
 
 # 5. Repositório p2
 REPO="file:$DIST/repository"
@@ -58,10 +64,10 @@ P2_ARGS=(-nosplash -consoleLog -data @none)
     -metadataRepository "$REPO" \
     -categoryDefinition "file:$ROOT/category.xml" -categoryQualifier "$BUNDLE_ID" -compress
 [[ -f "$DIST/repository/content.jar" ]] || fail "repositório p2 não foi gerado"
-rm -rf "$DIST/site"
+rm -rf "$DIST/site" "$DIST/tmp"
 
 # 6. Resultado
 echo
-echo "Build concluído (versão $VERSION):"
+echo "Build concluído (versão $QUALIFIED):"
 jar --list --file "$DIST/${BUNDLE_ID}_${VERSION}.jar" | sed 's/^/  /'
 find "$DIST/repository" -type f | sed "s|$DIST/|  |"
