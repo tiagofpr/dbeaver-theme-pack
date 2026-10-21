@@ -10,7 +10,7 @@ DBeaver e sem depender de APIs internas ou reflexão.
 
 ## Capturas de tela
 
-_Em breve._
+_Em breve._ Componentes validados: janela principal, Database Navigator, editor SQL, grade de resultados (Grid e Text), diálogos, preferências e diagramas ER.
 
 ## Paleta de cores
 
@@ -42,9 +42,19 @@ linha atual do editor `#343746`.
 
 | DBeaver | Status   |
 |---------|----------|
-| 26.1.5  | Testado  |
+| 26.1.5  | Testado (Ubuntu 24.04, pacote DEB) |
 
 ## Instalação
+
+### A partir da release (recomendado)
+
+1. Baixe `dbeaver-dracula-theme-<versão>-p2.zip` na página de
+   [Releases](https://github.com/tiagofpr/dbeaver-dracula-theme/releases).
+2. No DBeaver: **Help → Install New Software → Add… → Archive…** e selecione o zip.
+3. Marque **DBeaver Dracula Theme**, conclua o assistente e reinicie.
+4. Ative em **Window → Preferences → User Interface → Appearance → Theme → Dracula**.
+
+### A partir do código-fonte
 
 ```bash
 ./build.sh      # gera dist/ e o repositório p2 em dist/repository

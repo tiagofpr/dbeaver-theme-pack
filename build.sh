@@ -4,6 +4,8 @@
 #   dist/com.tiago.dbeaver.dracula_<versão>.jar   plugin (tema)
 #   dist/repository/                              repositório p2 (para install.sh
 #                                                 ou Help > Install New Software)
+#   dist/dbeaver-dracula-theme-<versão>-p2.zip    mesmo repositório compactado
+#                                                 (Install New Software > Archive)
 #
 # O repositório p2 é gerado com o publisher que acompanha o próprio DBeaver.
 # Defina DBEAVER_HOME se o DBeaver não estiver em /usr/share/dbeaver-ce.
@@ -65,9 +67,11 @@ P2_ARGS=(-nosplash -consoleLog -data @none)
     -categoryDefinition "file:$ROOT/category.xml" -categoryQualifier "$BUNDLE_ID" -compress
 [[ -f "$DIST/repository/content.jar" ]] || fail "repositório p2 não foi gerado"
 rm -rf "$DIST/site" "$DIST/tmp"
+(cd "$DIST/repository" && zip -qr "$DIST/dbeaver-dracula-theme-${VERSION}-p2.zip" .)
 
 # 6. Resultado
 echo
 echo "Build concluído (versão $QUALIFIED):"
 jar --list --file "$DIST/${BUNDLE_ID}_${VERSION}.jar" | sed 's/^/  /'
 find "$DIST/repository" -type f | sed "s|$DIST/|  |"
+echo "  dbeaver-dracula-theme-${VERSION}-p2.zip"
