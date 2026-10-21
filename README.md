@@ -133,7 +133,13 @@ barra de menus e realces de clique ficam claros no Linux.
 - **Atualização do DBeaver.** Após atualizar o pacote DEB, o DBeaver pode pedir
   para migrar os plugins instalados pelo usuário. Se o tema sumir, rode
   `./install.sh` novamente.
-- **Grade de resultados**: ainda usa as cores do tema escuro padrão (em andamento).
+- **Cor de seleção em listas e árvores** (azul) vem do tema GTK do sistema e não
+  é alcançada pelo CSS do Eclipse. É possível trocá-la iniciando o DBeaver com
+  `-Dorg.eclipse.swt.internal.gtk.cssFile=<arquivo.css>` (folha GTK aplicada só
+  ao DBeaver), mas isso exige alterar o `dbeaver.ini` ou o atalho de
+  inicialização e não faz parte da instalação padrão.
+- **Cores dos tipos de conexão** (Production, Test…) não são controladas pelo
+  tema: ajuste em *Preferences → Connections → Connection Types → Color (Dark)*.
 - Plugins de aparência que usam reflexão em classes internas (ex.: DevStyle)
   podem causar erros como `this.lastTabHeight is null`; este tema não usa
   reflexão nem código Java.
