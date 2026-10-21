@@ -95,6 +95,47 @@ IEclipsePreferences#org-eclipse-ui-workbench:dbeaver-sql-editor {
         'org.jkiss.dbeaver.ui.general.color.error.foreground=255,85,85'
 }
 
+/* =========================================================
+   Grade de resultados
+   Mesmo seletor de org.jkiss.dbeaver.ui.editors.data/css/e4-dark-data-editor.css.
+   preview.background e cell.readonly.background não existem na folha
+   escura original (ficariam com o valor claro padrão) e foram incluídos.
+   Fundos de estado (alterado, novo, removido, erro) usam tons escuros
+   da paleta para manter o texto legível.
+   ========================================================= */
+IEclipsePreferences#org-eclipse-ui-workbench:dbeaver-data-editor {
+    preferences:
+        'org.jkiss.dbeaver.sql.resultset.color.cell.odd.background=46,48,62'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.modified.background=92,70,45'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.error.background=110,40,50'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.new.background=40,85,50'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.deleted.background=90,35,45'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.matched.background=98,90,40'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.readonly.background=33,34,44'
+        'org.jkiss.dbeaver.sql.resultset.color.preview.background=52,55,70'
+        'org.jkiss.dbeaver.sql.resultset.color.selection.background=68,71,90'
+        'org.jkiss.dbeaver.sql.resultset.color.selection.foreground=248,248,242'
+        'org.jkiss.dbeaver.sql.resultset.color.lines.normal=52,55,70'
+        'org.jkiss.dbeaver.sql.resultset.color.lines.selected=98,114,164'
+        'org.jkiss.dbeaver.sql.resultset.color.header.background=33,34,44'
+        'org.jkiss.dbeaver.sql.resultset.color.header.foreground=248,248,242'
+        'org.jkiss.dbeaver.sql.resultset.color.header.selected.background=68,71,90'
+        'org.jkiss.dbeaver.sql.resultset.color.header.border=68,71,90'
+        'org.jkiss.dbeaver.sql.resultset.color.null.foreground=98,114,164'
+        'org.jkiss.dbeaver.sql.resultset.color.binary.foreground=255,121,198'
+        'org.jkiss.dbeaver.sql.resultset.color.boolean.foreground=255,184,108'
+        'org.jkiss.dbeaver.sql.resultset.color.datetime.foreground=139,233,253'
+        'org.jkiss.dbeaver.sql.resultset.color.numeric.foreground=189,147,249'
+        'org.jkiss.dbeaver.sql.resultset.color.string.foreground=248,248,242'
+}
+
+/* Fundo das células (não há chave de preferência para ele) */
+Spreadsheet,
+LightGrid {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
 /* Paleta base
    Fundo principal:      #282A36
    Fundo secundário:     #21222C
@@ -241,9 +282,75 @@ ProgressBar {
     background-color: #21222C;
 }
 
-/* Views e partes do Workbench */
+/* Views e partes do Workbench
+   Mesmos seletores de org.eclipse.ui.themes/css/dark/e4-dark_partstyle.css:
+   são mais específicos (.MPart X) que as regras de widget acima e por isso
+   precisam ser repetidos para valer dentro dos painéis
+   (Database Navigator, resultados em modo texto, propriedades etc.). */
 .MPart {
     background-color: #282A36;
+    color: #F8F8F2;
+}
+
+.MPart Composite,
+.MPart Composite > *,
+.MPart Composite > * > *,
+.MPart Label,
+.MPart ScrolledForm,
+.MPart Form,
+.MPart Section,
+.MPart FormText,
+.MPart Link,
+.MPart Sash,
+.MPart Button,
+.MPart Group,
+.MPart SashForm,
+.MPart Tree,
+.MPart FilteredTree,
+.MPart RegistryFilteredTree,
+.MPart PageSiteComposite,
+.MPart DependenciesComposite,
+.MPart Text[style~='SWT.READ_ONLY'],
+.MPart FigureCanvas,
+.MPart ListEditorComposite,
+.MPart ScrolledComposite,
+.MPart Form ScrolledPageBook,
+.MPart Table,
+.MPart Browser,
+.MPart ViewForm,
+.MPart ViewForm > CLabel,
+.MPart PageBook > Label,
+.MPart PageBook > SashForm {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+.MPart Section > Label {
+    background-color: #282A36;
+    color: #8BE9FD;
+}
+
+.MPart Section Tree {
+    background-color: #21222C;
+    color: #F8F8F2;
+}
+
+/* Áreas de texto dentro de painéis (ex.: resultados em modo Text) */
+.MPart Composite > StyledText {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+/* Campos de entrada dentro de painéis */
+.MPart DatePicker,
+.MPart DatePicker > Text,
+.MPart ScheduleDatePicker,
+.MPart ScheduleDatePicker > Text,
+.MPart CCombo,
+.MPart Spinner,
+.MPart PageBook > SashForm Label,
+.MPart SashForm > Text[style~='SWT.BORDER'] {
+    background-color: #21222C;
     color: #F8F8F2;
 }
 

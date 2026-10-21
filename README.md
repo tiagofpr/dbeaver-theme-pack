@@ -118,6 +118,11 @@ que o p2 nunca reaproveite um artefato antigo em cache.
 O DBeaver identifica se o tema é escuro pela cor de fundo do editor de texto
 (`UIStyles.isDarkTheme`), não pelo ID do tema.
 
+O ID do tema é `com.tiago.dbeaver.dracula.theme.dark`. A palavra `dark` é
+obrigatória: o motor de temas do Eclipse só pede ao GTK a variante escura
+(`Display.setDarkThemePreferred`) quando o ID contém `dark`. Sem isso, menus,
+barra de menus e realces de clique ficam claros no Linux.
+
 ## Problemas conhecidos
 
 - **Menus no Linux (GTK)** são nativos e não aceitam cores via CSS; seguem o tema
