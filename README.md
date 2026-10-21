@@ -10,7 +10,7 @@ DBeaver e sem depender de APIs internas ou reflexão.
 
 ## Capturas de tela
 
-_Em breve._
+_Em breve._ Componentes validados: janela principal, Database Navigator, editor SQL, grade de resultados (Grid e Text), diálogos, preferências e diagramas ER.
 
 ## Paleta de cores
 
@@ -42,9 +42,19 @@ linha atual do editor `#343746`.
 
 | DBeaver | Status   |
 |---------|----------|
-| 26.1.5  | Testado  |
+| 26.1.5  | Testado (Ubuntu 24.04, pacote DEB) |
 
 ## Instalação
+
+### A partir da release (recomendado)
+
+1. Baixe `dbeaver-dracula-theme-<versão>-p2.zip` na página de
+   [Releases](https://github.com/tiagofpr/dbeaver-dracula-theme/releases).
+2. No DBeaver: **Help → Install New Software → Add… → Archive…** e selecione o zip.
+3. Marque **DBeaver Dracula Theme**, conclua o assistente e reinicie.
+4. Ative em **Window → Preferences → User Interface → Appearance → Theme → Dracula**.
+
+### A partir do código-fonte
 
 ```bash
 ./build.sh      # gera dist/ e o repositório p2 em dist/repository
@@ -118,6 +128,11 @@ que o p2 nunca reaproveite um artefato antigo em cache.
 O DBeaver identifica se o tema é escuro pela cor de fundo do editor de texto
 (`UIStyles.isDarkTheme`), não pelo ID do tema.
 
+O ID do tema é `com.tiago.dbeaver.dracula.theme.dark`. A palavra `dark` é
+obrigatória: o motor de temas do Eclipse só pede ao GTK a variante escura
+(`Display.setDarkThemePreferred`) quando o ID contém `dark`. Sem isso, menus,
+barra de menus e realces de clique ficam claros no Linux.
+
 ## Problemas conhecidos
 
 - **Menus no Linux (GTK)** são nativos e não aceitam cores via CSS; seguem o tema
@@ -128,7 +143,13 @@ O DBeaver identifica se o tema é escuro pela cor de fundo do editor de texto
 - **Atualização do DBeaver.** Após atualizar o pacote DEB, o DBeaver pode pedir
   para migrar os plugins instalados pelo usuário. Se o tema sumir, rode
   `./install.sh` novamente.
-- **Grade de resultados**: ainda usa as cores do tema escuro padrão (em andamento).
+- **Cor de seleção em listas e árvores** (azul) vem do tema GTK do sistema e não
+  é alcançada pelo CSS do Eclipse. É possível trocá-la iniciando o DBeaver com
+  `-Dorg.eclipse.swt.internal.gtk.cssFile=<arquivo.css>` (folha GTK aplicada só
+  ao DBeaver), mas isso exige alterar o `dbeaver.ini` ou o atalho de
+  inicialização e não faz parte da instalação padrão.
+- **Cores dos tipos de conexão** (Production, Test…) não são controladas pelo
+  tema: ajuste em *Preferences → Connections → Connection Types → Color (Dark)*.
 - Plugins de aparência que usam reflexão em classes internas (ex.: DevStyle)
   podem causar erros como `this.lastTabHeight is null`; este tema não usa
   reflexão nem código Java.

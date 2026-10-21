@@ -14,7 +14,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$ROOT/dist/repository"
 IU="com.tiago.dbeaver.dracula.feature.feature.group"
-THEME_ID="com.tiago.dbeaver.dracula.theme"
+THEME_ID="com.tiago.dbeaver.dracula.theme.dark"
 
 fail() { echo "ERRO: $*" >&2; exit 1; }
 
