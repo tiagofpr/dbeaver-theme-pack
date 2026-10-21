@@ -4,7 +4,7 @@
 <plugin>
     <extension point="org.eclipse.e4.ui.css.swt.theme">
         <theme
-            id="com.tiago.dbeaver.dracula.theme"
+            id="com.tiago.dbeaver.dracula.theme.dark"
             label="Dracula"
             basestylesheeturi="css/dracula.css">
         </theme>
