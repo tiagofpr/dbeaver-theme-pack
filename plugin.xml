@@ -40,5 +40,30 @@
             label="Monokai"
             basestylesheeturi="css/monokai.css">
         </theme>
+        <theme
+            id="com.tiago.dbeaver.themepack.vimesc.dark"
+            label="Vimesc"
+            basestylesheeturi="css/vimesc.css">
+        </theme>
+        <theme
+            id="com.tiago.dbeaver.themepack.vimdarkblue.dark"
+            label="Vim Darkblue"
+            basestylesheeturi="css/vim-darkblue.css">
+        </theme>
+        <theme
+            id="com.tiago.dbeaver.themepack.notepadplastic.dark"
+            label="Notepad++ Plastic Code Wrap"
+            basestylesheeturi="css/notepad-plastic-code-wrap.css">
+        </theme>
+        <theme
+            id="com.tiago.dbeaver.themepack.borlandclassic.dark"
+            label="Borland Classic"
+            basestylesheeturi="css/borland-classic.css">
+        </theme>
+        <theme
+            id="com.tiago.dbeaver.themepack.intellijhighcontrast.dark"
+            label="High Contrast"
+            basestylesheeturi="css/intellij-high-contrast.css">
+        </theme>
     </extension>
 </plugin>
