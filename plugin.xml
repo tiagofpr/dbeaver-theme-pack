@@ -6,12 +6,12 @@
          variante escura (menus, barra de menus e realces de clique). -->
     <extension point="org.eclipse.e4.ui.css.swt.theme">
         <theme
-            id="com.tiago.dbeaver.dracula.theme.dark"
+            id="com.tiago.dbeaver.themepack.dracula.dark"
             label="Dracula"
             basestylesheeturi="css/dracula.css">
         </theme>
         <theme
-            id="com.tiago.dbeaver.solarized.theme.dark"
+            id="com.tiago.dbeaver.themepack.solarized.dark"
             label="Solarized Dark"
             basestylesheeturi="css/solarized-dark.css">
         </theme>
