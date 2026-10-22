@@ -3,10 +3,10 @@
 #
 #   css/<tema>.css                                gerado de themes/theme.css.in +
 #                                                 themes/<tema>.properties
-#   dist/com.tiago.dbeaver.dracula_<versão>.jar   plugin (tema)
+#   dist/com.tiago.dbeaver.themepack_<versão>.jar plugin (temas)
 #   dist/repository/                              repositório p2 (para install.sh
 #                                                 ou Help > Install New Software)
-#   dist/dbeaver-dracula-theme-<versão>-p2.zip    mesmo repositório compactado
+#   dist/dbeaver-theme-pack-<versão>-p2.zip      mesmo repositório compactado
 #                                                 (Install New Software > Archive)
 #
 # O repositório p2 é gerado com o publisher que acompanha o próprio DBeaver.
@@ -17,8 +17,8 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DIST="$ROOT/dist"
 DBEAVER_HOME="${DBEAVER_HOME:-/usr/share/dbeaver-ce}"
 
-BUNDLE_ID="com.tiago.dbeaver.dracula"
-FEATURE_ID="com.tiago.dbeaver.dracula.feature"
+BUNDLE_ID="com.tiago.dbeaver.themepack"
+FEATURE_ID="com.tiago.dbeaver.themepack.feature"
 
 fail() { echo "ERRO: $*" >&2; exit 1; }
 
@@ -82,11 +82,11 @@ P2_ARGS=(-nosplash -consoleLog -data @none)
     -categoryDefinition "file:$ROOT/category.xml" -categoryQualifier "$BUNDLE_ID" -compress
 [[ -f "$DIST/repository/content.jar" ]] || fail "repositório p2 não foi gerado"
 rm -rf "$DIST/site" "$DIST/tmp"
-(cd "$DIST/repository" && zip -qr "$DIST/dbeaver-dracula-theme-${VERSION}-p2.zip" .)
+(cd "$DIST/repository" && zip -qr "$DIST/dbeaver-theme-pack-${VERSION}-p2.zip" .)
 
 # 7. Resultado
 echo
 echo "Build concluído (versão $QUALIFIED):"
 jar --list --file "$DIST/${BUNDLE_ID}_${VERSION}.jar" | sed 's/^/  /'
 find "$DIST/repository" -type f | sed "s|$DIST/|  |"
-echo "  dbeaver-dracula-theme-${VERSION}-p2.zip"
+echo "  dbeaver-theme-pack-${VERSION}-p2.zip"
