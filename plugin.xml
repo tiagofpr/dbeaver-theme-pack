@@ -15,5 +15,30 @@
             label="Solarized Dark"
             basestylesheeturi="css/solarized-dark.css">
         </theme>
+        <theme
+            id="com.tiago.dbeaver.themepack.onedark.dark"
+            label="One Dark"
+            basestylesheeturi="css/one-dark.css">
+        </theme>
+        <theme
+            id="com.tiago.dbeaver.themepack.nord.dark"
+            label="Nord"
+            basestylesheeturi="css/nord.css">
+        </theme>
+        <theme
+            id="com.tiago.dbeaver.themepack.gruvbox.dark"
+            label="Gruvbox Dark"
+            basestylesheeturi="css/gruvbox-dark.css">
+        </theme>
+        <theme
+            id="com.tiago.dbeaver.themepack.tokyonight.dark"
+            label="Tokyo Night"
+            basestylesheeturi="css/tokyo-night.css">
+        </theme>
+        <theme
+            id="com.tiago.dbeaver.themepack.monokai.dark"
+            label="Monokai"
+            basestylesheeturi="css/monokai.css">
+        </theme>
     </extension>
 </plugin>
