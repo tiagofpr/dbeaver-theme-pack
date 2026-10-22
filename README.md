@@ -79,16 +79,18 @@ linha atual do editor `#343746`.
 
 ## Requisitos
 
-- Linux (testado no Ubuntu 24.04).
-- DBeaver Community instalado por pacote DEB ou arquivo compactado.
-  Snap e Flatpak não são suportados pelo `install.sh` (veja abaixo).
+- DBeaver Community no **Linux** (testado no Ubuntu 24.04) ou no **Windows**.
+- No Windows, instale pelo zip da release (*Install New Software → Archive*);
+  `build.sh` e `install.sh` são scripts para Linux.
+- No Linux, o `install.sh` suporta DBeaver instalado por pacote DEB ou arquivo
+  compactado; Snap e Flatpak não são suportados (veja abaixo).
 - Para compilar: um JDK (qualquer versão ≥ 17, apenas para o utilitário `jar`).
 
 ## Versões compatíveis do DBeaver
 
 | DBeaver | Status   |
 |---------|----------|
-| 26.1.5  | Testado (Ubuntu 24.04, pacote DEB) |
+| 26.1.5  | Testado no Linux (Ubuntu 24.04, pacote DEB) e no Windows |
 
 ## Instalação
 
