@@ -13,3 +13,6 @@ build/
 *.epf
 *.prefs
 DBeaverData/
+
+# CSS gerado a partir de themes/ pelo build.sh
+css/

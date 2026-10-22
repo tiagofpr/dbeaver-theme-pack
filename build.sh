@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Gera o plugin, a feature e um repositório p2 local em dist/.
 #
+#   css/<tema>.css                                gerado de themes/theme.css.in +
+#                                                 themes/<tema>.properties
 #   dist/com.tiago.dbeaver.dracula_<versão>.jar   plugin (tema)
 #   dist/repository/                              repositório p2 (para install.sh
 #                                                 ou Help > Install New Software)
@@ -21,8 +23,8 @@ FEATURE_ID="com.tiago.dbeaver.dracula.feature"
 fail() { echo "ERRO: $*" >&2; exit 1; }
 
 # 1. Validação da estrutura
-for f in META-INF/MANIFEST.MF plugin.xml build.properties css/dracula.css \
-         feature/feature.xml category.xml; do
+for f in META-INF/MANIFEST.MF plugin.xml build.properties themes/theme.css.in \
+         themes/generate.sh feature/feature.xml category.xml; do
     [[ -f "$ROOT/$f" ]] || fail "arquivo obrigatório ausente: $f"
 done
 command -v jar >/dev/null || fail "'jar' não encontrado (instale um JDK)"
@@ -44,17 +46,30 @@ QUALIFIED="$VERSION.v$(date +%Y%m%d%H%M%S)"
 rm -rf "$DIST"
 mkdir -p "$DIST/site/plugins" "$DIST/site/features" "$DIST/tmp"
 
-# 3. Plugin
+# 3. CSS dos temas: um por paleta; cada um precisa estar registrado no plugin.xml
+rm -rf "$ROOT/css"
+mkdir -p "$ROOT/css"
+for palette in "$ROOT"/themes/*.properties; do
+    name="$(basename "$palette" .properties)"
+    theme_id="$(sed -n 's/^theme.id=//p' "$palette")"
+    grep -q "id=\"$theme_id\"" "$ROOT/plugin.xml" \
+        || fail "tema $theme_id ($name) não registrado no plugin.xml"
+    grep -q "basestylesheeturi=\"css/$name.css\"" "$ROOT/plugin.xml" \
+        || fail "plugin.xml não aponta para css/$name.css"
+    "$ROOT/themes/generate.sh" "$ROOT/themes/theme.css.in" "$palette" "$ROOT/css/$name.css"
+done
+
+# 4. Plugin
 sed "s/^Bundle-Version: .*/Bundle-Version: $QUALIFIED/" "$ROOT/META-INF/MANIFEST.MF" > "$DIST/tmp/MANIFEST.MF"
 PLUGIN_JAR="$DIST/site/plugins/${BUNDLE_ID}_${QUALIFIED}.jar"
 (cd "$ROOT" && jar --create --file "$PLUGIN_JAR" --manifest "$DIST/tmp/MANIFEST.MF" plugin.xml css)
 cp "$PLUGIN_JAR" "$DIST/${BUNDLE_ID}_${VERSION}.jar"
 
-# 4. Feature
+# 5. Feature
 sed "s/version=\"$VERSION\"/version=\"$QUALIFIED\"/g" "$ROOT/feature/feature.xml" > "$DIST/tmp/feature.xml"
 (cd "$DIST/tmp" && jar --create --file "$DIST/site/features/${FEATURE_ID}_${QUALIFIED}.jar" feature.xml)
 
-# 5. Repositório p2
+# 6. Repositório p2
 REPO="file:$DIST/repository"
 P2_ARGS=(-nosplash -consoleLog -data @none)
 "$DBEAVER_HOME/dbeaver" "${P2_ARGS[@]}" \
@@ -69,7 +84,7 @@ P2_ARGS=(-nosplash -consoleLog -data @none)
 rm -rf "$DIST/site" "$DIST/tmp"
 (cd "$DIST/repository" && zip -qr "$DIST/dbeaver-dracula-theme-${VERSION}-p2.zip" .)
 
-# 6. Resultado
+# 7. Resultado
 echo
 echo "Build concluído (versão $QUALIFIED):"
 jar --list --file "$DIST/${BUNDLE_ID}_${VERSION}.jar" | sed 's/^/  /'
