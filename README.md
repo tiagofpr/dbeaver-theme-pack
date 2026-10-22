@@ -1,7 +1,7 @@
 # DBeaver Theme Pack
 
 Temas escuros completos para o DBeaver Community, implementados como um plugin
-Eclipse (tema CSS do e4). O plugin traz sete temas:
+Eclipse (tema CSS do e4). O plugin traz doze temas:
 
 | Tema | Origem das cores | Editor | Palavras-chave | Strings | Números | Funções |
 |------|------------------|--------|----------------|---------|---------|---------|
@@ -12,6 +12,11 @@ Eclipse (tema CSS do e4). O plugin traz sete temas:
 | **Gruvbox Dark** | [morhetz/gruvbox](https://github.com/morhetz/gruvbox) | `#282828` | `#FB4934` | `#B8BB26` | `#D3869B` | `#8EC07C` |
 | **Tokyo Night** | tema do Antigravity/VS Code | `#1A1B26` | `#BB9AF7` | `#9ECE6A` | `#FF9E64` | `#7AA2F7` |
 | **Monokai** | tema do Antigravity/VS Code | `#272822` | `#F92672` | `#E6DB74` | `#AE81FF` | `#A6E22E` |
+| **Vimesc** | [eclipse-color-themes](https://eclipse-color-themes.vercel.app/themes/eclipse-themes/vimesc) | `#000000` | `#00FF00` | `#FF0000` | `#FFFF00` | `#F1C438` |
+| **Vim Darkblue** | [eclipse-color-themes](https://eclipse-color-themes.vercel.app/themes/eclipse-themes/vim-darkblue) | `#000040` | `#FFFF60` | `#FFA0A0` | `#FFFFBB` | `#AAFFAA` |
+| **Notepad++ Plastic Code Wrap** | [eclipse-color-themes](https://eclipse-color-themes.vercel.app/themes/eclipse-themes/notepad-plastic-code-wrap) | `#0B161D` | `#FFAA00` | `#55E439` | `#FF3A83` | `#BED6FF` |
+| **Borland Classic** | [eclipse-color-themes](https://eclipse-color-themes.vercel.app/themes/eclipse-themes/borland-classic) | `#000066` | `#FFFFFF` | `#FFC600` | `#7FB347` | `#BED6FF` |
+| **High Contrast** | tema High Contrast do IntelliJ (JetBrains) | `#131314` | `#ED864A` | `#54B33E` | `#33CCFF` | `#FFCF40` |
 
 O objetivo é que toda a interface do DBeaver — janela principal, Database
 Navigator, editor SQL, grade de resultados, abas, diálogos e diagramas ER —
@@ -28,7 +33,9 @@ As paletas completas (todos os papéis de cor) estão em [`themes/`](themes/),
 um arquivo `.properties` por tema. Onde o tema original usa cores com
 transparência, elas foram misturadas ao fundo (o Eclipse não aceita alfa); nos
 temas One Dark, Nord e Tokyo Night, números de linha e valores NULL foram
-clareados com tons do próprio tema para manter a legibilidade.
+clareados com tons do próprio tema para manter a legibilidade. Os temas vindos do eclipse-color-themes
+definem só o editor; as cores da interface (barras, abas, grade, diálogos) foram
+derivadas do fundo e dos destaques de cada um.
 
 ### Dracula
 
