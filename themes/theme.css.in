@@ -1,0 +1,542 @@
+/* =========================================================
+   DBeaver {{theme.label}} Theme
+   Gerado por build.sh a partir de themes/theme.css.in e
+   themes/{{theme.file}}.properties. Não edite o CSS gerado.
+   ========================================================= */
+
+/* Base: tema escuro do Eclipse + folhas escuras contribuídas pelos
+   plugins do DBeaver. Elas só são ligadas ao tema e4_dark via
+   plugin.xml, então precisam ser importadas aqui explicitamente. */
+@import url("platform:/plugin/org.eclipse.ui.themes/css/e4-dark_linux.css");
+@import url("platform:/plugin/org.eclipse.ui.themes/css/dark/e4-dark_preferencestyle.css");
+@import url("platform:/plugin/org.eclipse.ui.editors/css/e4-dark_preferencestyle.css");
+@import url("platform:/plugin/org.eclipse.gef/css/gef_dark.css");
+@import url("platform:/plugin/org.jkiss.dbeaver.core/css/e4-dark_dbeaver_prefstyle.css");
+@import url("platform:/plugin/org.jkiss.dbeaver.ui.ai/css/e4-dark_ai_prefstyle.css");
+@import url("platform:/plugin/org.jkiss.dbeaver.ui.editors.data/css/e4-dark-data-editor.css");
+@import url("platform:/plugin/org.jkiss.dbeaver.ui.editors.erd/css/e4-dark-erd-editor.css");
+@import url("platform:/plugin/org.jkiss.dbeaver.ui.editors.sql/css/e4-dark-sql-editor.css");
+
+/* =========================================================
+   Editores de texto (fundo, seleção, linha atual, numeração)
+   Mesmo seletor de org.jkiss.dbeaver.core/css/e4-dark_dbeaver_prefstyle.css:
+   como vem depois, esta regra substitui a original por inteiro,
+   por isso todas as chaves precisam estar presentes.
+   ========================================================= */
+IEclipsePreferences#org-eclipse-ui-editors:org-eclipse-ui-themes {
+    preferences:
+        'AbstractTextEditor.Color.Background.SystemDefault=false'
+        'AbstractTextEditor.Color.SelectionForeground.SystemDefault=false'
+        'AbstractTextEditor.Color.SelectionBackground.SystemDefault=false'
+        'AbstractTextEditor.Color.Background={{bg:rgb}}'
+        'AbstractTextEditor.Color.Foreground.SystemDefault=false'
+        'AbstractTextEditor.Color.SelectionBackground={{selection:rgb}}'
+        'AbstractTextEditor.Color.SelectionForeground={{fg_editor:rgb}}'
+        'AbstractTextEditor.Color.Foreground={{fg_editor:rgb}}'
+        'AbstractTextEditor.Color.FindScope={{accent_dim:rgb}}'
+        'asOccurencesIndicationColor={{selection:rgb}}'
+        'breakpointIndicationColor={{accent:rgb}}'
+        'currentIPColor={{selection:rgb}}'
+        'currentLineColor={{current_line:rgb}}'
+        'deletionIndicationColor={{red:rgb}}'
+        'filteredSearchResultIndicationColor={{accent_dim:rgb}}'
+        'hyperlinkColor={{link:rgb}}'
+        'hyperlinkColor.SystemDefault=false'
+        'infoIndicationColor={{link:rgb}}'
+        'lineNumberColor={{line_number:rgb}}'
+        'linked.slave.color={{accent:rgb}}'
+        'matchingTagIndicationColor={{selection:rgb}}'
+        'occurrenceIndicationColor={{selection:rgb}}'
+        'overrideIndicatorColor={{green:rgb}}'
+        'printMarginColor={{border:rgb}}'
+        'searchResultHighlighting=false'
+        'searchResultIndication=true'
+        'searchResultIndicationColor={{accent_dim:rgb}}'
+        'searchResultTextStyle=BOX'
+        'secondaryIPColor={{selection:rgb}}'
+        'spellingIndicationColor={{spelling:rgb}}'
+        'writeOccurrenceIndicationColor={{accent_dim:rgb}}'
+        'org.eclipse.ui.editors.stickyLinesSeparatorColor={{border:rgb}}'
+}
+
+#org-eclipse-e4-ui-compatibility-editor Canvas,
+#org-eclipse-e4-ui-compatibility-editor Canvas > * {
+    background-color: {{bg}};
+}
+
+/* =========================================================
+   Editor SQL (realce de sintaxe)
+   Mesmo seletor de org.jkiss.dbeaver.ui.editors.sql/css/e4-dark-sql-editor.css
+   ========================================================= */
+IEclipsePreferences#org-eclipse-ui-workbench:dbeaver-sql-editor {
+    preferences:
+        'org.jkiss.dbeaver.sql.editor.color.schema.foreground={{sql_schema:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.column.derived.foreground={{sql_column_derived:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.column.foreground={{sql_column:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.table.alias.foreground={{sql_alias:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.table.foreground={{sql_table:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.composite.field.foreground={{sql_composite:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.semanticError.foreground={{red:rgb}}'
+
+        'org.jkiss.dbeaver.sql.editor.color.text.foreground={{fg_editor:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.text.background={{bg:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.disabled.background={{bg_disabled:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.keyword.foreground={{sql_keyword:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.datatype.foreground={{sql_datatype:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.function.foreground={{sql_function:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.string.foreground={{sql_string:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.number.foreground={{sql_number:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.comment.foreground={{comment:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.delimiter.foreground={{sql_delimiter:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.parameter.foreground={{sql_parameter:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.sqlVariable.foreground={{sql_variable:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.command.foreground={{sql_command:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.aiSuggestion.foreground={{comment:rgb}}'
+        'org.jkiss.dbeaver.sql.editor.color.aiSuggestion.background={{current_line:rgb}}'
+        'org.jkiss.dbeaver.ui.general.color.warning.foreground={{warning:rgb}}'
+        'org.jkiss.dbeaver.ui.general.color.error.foreground={{red:rgb}}'
+}
+
+/* =========================================================
+   Grade de resultados
+   Mesmo seletor de org.jkiss.dbeaver.ui.editors.data/css/e4-dark-data-editor.css.
+   preview.background e cell.readonly.background não existem na folha
+   escura original (ficariam com o valor claro padrão) e foram incluídos.
+   Fundos de estado (alterado, novo, removido, erro) usam tons escuros
+   da paleta para manter o texto legível.
+   ========================================================= */
+IEclipsePreferences#org-eclipse-ui-workbench:dbeaver-data-editor {
+    preferences:
+        'org.jkiss.dbeaver.sql.resultset.color.cell.odd.background={{grid_odd:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.modified.background={{grid_modified:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.error.background={{grid_error:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.new.background={{grid_new:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.deleted.background={{grid_deleted:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.matched.background={{grid_matched:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.cell.readonly.background={{bg_disabled:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.preview.background={{current_line:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.selection.background={{selection_list:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.selection.foreground={{fg_selected:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.lines.normal={{grid_lines:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.lines.selected={{accent_dim:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.header.background={{header_bg:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.header.foreground={{fg:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.header.selected.background={{selection_list:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.header.border={{border:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.null.foreground={{fg_disabled:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.binary.foreground={{grid_binary:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.boolean.foreground={{grid_boolean:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.datetime.foreground={{grid_datetime:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.numeric.foreground={{sql_number:rgb}}'
+        'org.jkiss.dbeaver.sql.resultset.color.string.foreground={{fg_editor:rgb}}'
+}
+
+/* =========================================================
+   Cores base do registro (ColorDefinition)
+   Definidas em org.eclipse.ui.themes/css/dark/e4-dark_ide_colorextensions.css
+   e usadas por diálogos, campos, abas e painéis. Só a propriedade color
+   é sobrescrita; category e label vêm da regra original.
+   ========================================================= */
+ColorDefinition#org-eclipse-ui-workbench-DARK_BACKGROUND { color: {{bg}}; }
+ColorDefinition#org-eclipse-ui-workbench-DARK_FOREGROUND { color: {{fg}}; }
+ColorDefinition#org-eclipse-ui-workbench-LINK_COLOR { color: {{link}}; }
+
+ColorDefinition#org-eclipse-ui-workbench-INACTIVE_UNSELECTED_TABS_COLOR_START { color: {{tab_inactive_bg}}; }
+ColorDefinition#org-eclipse-ui-workbench-INACTIVE_UNSELECTED_TABS_COLOR_END { color: {{tab_inactive_bg}}; }
+ColorDefinition#org-eclipse-ui-workbench-INACTIVE_TAB_BG_START { color: {{bg}}; }
+ColorDefinition#org-eclipse-ui-workbench-INACTIVE_TAB_BG_END { color: {{bg}}; }
+ColorDefinition#org-eclipse-ui-workbench-INACTIVE_TAB_OUTER_KEYLINE_COLOR { color: {{border}}; }
+ColorDefinition#org-eclipse-ui-workbench-INACTIVE_TAB_INNER_KEYLINE_COLOR { color: {{border}}; }
+ColorDefinition#org-eclipse-ui-workbench-INACTIVE_TAB_OUTLINE_COLOR { color: {{border}}; }
+ColorDefinition#org-eclipse-ui-workbench-INACTIVE_TAB_TEXT_COLOR { color: {{fg_muted}}; }
+ColorDefinition#org-eclipse-ui-workbench-INACTIVE_TAB_UNSELECTED_TEXT_COLOR { color: {{fg_muted}}; }
+ColorDefinition#org-eclipse-ui-workbench-INACTIVE_TAB_SELECTED_TEXT_COLOR { color: {{fg_active}}; }
+
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_UNSELECTED_TABS_COLOR_START { color: {{tab_inactive_bg}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_UNSELECTED_TABS_COLOR_END { color: {{tab_inactive_bg}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_TAB_BG_START { color: {{bg}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_TAB_BG_END { color: {{bg}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_TAB_OUTER_KEYLINE_COLOR { color: {{border}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_TAB_INNER_KEYLINE_COLOR { color: {{border}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_TAB_OUTLINE_COLOR { color: {{border}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_TAB_TEXT_COLOR { color: {{fg_active}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_TAB_UNSELECTED_TEXT_COLOR { color: {{fg_muted}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_TAB_SELECTED_TEXT_COLOR { color: {{fg_active}}; }
+
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_NOFOCUS_TAB_BG_START { color: {{bg}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_NOFOCUS_TAB_BG_END { color: {{bg}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_NOFOCUS_TAB_TEXT_COLOR { color: {{fg_active}}; }
+ColorDefinition#org-eclipse-ui-workbench-ACTIVE_NOFOCUS_TAB_SELECTED_TEXT_COLOR { color: {{fg_active}}; }
+
+/* =========================================================
+   Cinzas fixos do tema escuro (diálogos, formulários, listas)
+   Mesmos seletores de org.eclipse.ui.themes/css/dark/e4-dark_globalstyle.css
+   ========================================================= */
+Button.disabled {
+    color: {{fg_disabled}};
+}
+
+Text[style~='SWT.SEARCH'],
+Text[style~='SWT.SEARCH'] + Label {
+    background-color: {{bg_input}};
+    color: {{fg}};
+}
+
+Text[style~='SWT.READ_ONLY'] {
+    background-color: {{bg}};
+    color: {{fg_muted}};
+}
+
+Shell Tree, Shell Table, Shell List {
+    background-color: {{bg}};
+}
+
+Table,
+Tree {
+    swt-header-color: {{fg}};
+    swt-header-background-color: {{header_bg}};
+}
+
+Hyperlink,
+ImageHyperlink {
+    background-color: inherit;
+    color: {{link}};
+}
+
+ViewerPane,
+DrillDownComposite {
+    background-color: {{bg_chrome}};
+    color: {{fg}};
+}
+
+ProgressIndicator {
+    background-color: {{surface}};
+    color: {{fg}};
+}
+
+GradientCanvas,
+GradientCanvas > Label {
+    background-color: {{surface}};
+    color: {{heading}};
+}
+
+GradientCanvas {
+    background: {{surface}};
+}
+
+Form {
+    background-color: {{bg}};
+    color: {{heading}};
+    text-background-color: {{bg}};
+    tb-toggle-hover-color: {{surface}};
+    tb-toggle-color: {{surface}};
+    h-hover-full-color: {{surface}};
+    h-hover-light-color: {{surface}};
+    h-bottom-keyline-2-color: {{surface}};
+    h-bottom-keyline-1-color: {{surface}};
+}
+
+FormHeading {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+Section {
+    background-color: {{bg}};
+    color: {{heading}};
+    background-color-titlebar: {{surface}};
+    background-color-gradient-titlebar: {{surface}};
+    border-color-titlebar: {{surface}};
+    swt-titlebar-color: {{fg}};
+    tb-toggle-hover-color: {{fg}};
+    tb-toggle-color: {{fg}};
+}
+
+HeapStatus {
+    background-color: {{surface}};
+    color: {{fg}};
+}
+
+PageSiteComposite > PropertyTable {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+PageSiteComposite > PropertyTable:disabled {
+    background-color: {{bg_disabled}};
+    color: {{fg_disabled}};
+}
+
+ExpandableComposite,
+ExpandableCompositeEx {
+    swt-titlebar-color: {{fg}};
+    tb-toggle-hover-color: {{fg}};
+    tb-toggle-color: {{fg}};
+}
+
+TabbedPropertyTitle > CLabel {
+    color: {{heading}};
+}
+
+TabbedPropertyTitle {
+    swt-backgroundGradientStart-color: {{surface}};
+    swt-backgroundGradientEnd-color: {{surface}};
+    swt-backgroundBottomKeyline1-color: {{surface}};
+    swt-backgroundBottomKeyline2-color: {{surface}};
+}
+
+/* Destaque da aba selecionada (azul no tema escuro original) */
+.MPartStack.active {
+    swt-selected-tab-highlight: {{accent}};
+}
+
+#org-eclipse-ui-editorss CTabFolder {
+    swt-selected-tab-fill: {{bg}};
+    swt-unselected-hot-tab-color-background: {{hover}};
+}
+
+#org-eclipse-ui-editorss CTabFolder.active {
+    swt-selected-tab-highlight: {{accent}};
+}
+
+/* Fundo das células (não há chave de preferência para ele) */
+Spreadsheet,
+LightGrid {
+    background-color: {{bg}};
+    color: {{fg_editor}};
+}
+
+/* Janela principal e composites */
+Shell,
+Composite,
+ScrolledComposite {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+/* Labels e textos */
+Label {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+/* Árvores: Connections, Projects, Files */
+Tree {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+Tree:focus {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+/* Listas */
+List {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+/* Tabelas e parte da grade de resultados */
+Table {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+/* Campos de texto */
+Text {
+    background-color: {{bg_input}};
+    color: {{fg}};
+}
+
+/* Combobox */
+Combo {
+    background-color: {{bg_input}};
+    color: {{fg}};
+}
+
+/* Botões */
+Button {
+    background-color: {{bg_raised}};
+    color: {{fg}};
+}
+
+/* Barras de ferramentas */
+ToolBar {
+    background-color: {{bg_chrome}};
+    color: {{fg}};
+}
+
+ToolItem {
+    background-color: {{bg_chrome}};
+    color: {{fg}};
+}
+
+/* Barras de status */
+StatusLine {
+    background-color: {{bg_chrome}};
+    color: {{fg}};
+}
+
+/* Abas CTabFolder */
+CTabFolder {
+    background-color: {{tab_inactive_bg}};
+    color: {{fg}};
+    swt-unselected-tabs-color: {{tab_inactive_bg}};
+    swt-selected-tab-fill: {{bg}};
+    swt-selected-tab-highlight: {{accent}};
+    swt-unselected-hot-tab-color-background: {{hover}};
+    swt-simple: false;
+    swt-mru-visible: true;
+}
+
+CTabItem {
+    background-color: {{tab_inactive_bg}};
+    color: {{fg_muted}};
+}
+
+CTabItem:selected {
+    background-color: {{bg}};
+    color: {{fg_active}};
+}
+
+/* Separadores */
+Sash {
+    background-color: {{border}};
+}
+
+/* Menus */
+Menu {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+MenuItem {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+/* Grupos */
+Group {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+/* ExpandBar */
+ExpandBar {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+ExpandItem {
+    background-color: {{bg_raised}};
+    color: {{fg}};
+}
+
+/* Progress bars */
+ProgressBar {
+    background-color: {{bg_chrome}};
+}
+
+/* Views e partes do Workbench
+   Mesmos seletores de org.eclipse.ui.themes/css/dark/e4-dark_partstyle.css:
+   são mais específicos (.MPart X) que as regras de widget acima e por isso
+   precisam ser repetidos para valer dentro dos painéis
+   (Database Navigator, resultados em modo texto, propriedades etc.). */
+.MPart {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+.MPart Composite,
+.MPart Composite > *,
+.MPart Composite > * > *,
+.MPart Label,
+.MPart ScrolledForm,
+.MPart Form,
+.MPart Section,
+.MPart FormText,
+.MPart Link,
+.MPart Sash,
+.MPart Button,
+.MPart Group,
+.MPart SashForm,
+.MPart Tree,
+.MPart FilteredTree,
+.MPart RegistryFilteredTree,
+.MPart PageSiteComposite,
+.MPart DependenciesComposite,
+.MPart Text[style~='SWT.READ_ONLY'],
+.MPart FigureCanvas,
+.MPart ListEditorComposite,
+.MPart ScrolledComposite,
+.MPart Form ScrolledPageBook,
+.MPart Table,
+.MPart Browser,
+.MPart ViewForm,
+.MPart ViewForm > CLabel,
+.MPart PageBook > Label,
+.MPart PageBook > SashForm {
+    background-color: {{bg}};
+    color: {{fg}};
+}
+
+.MPart Section > Label {
+    background-color: {{bg}};
+    color: {{heading}};
+}
+
+.MPart Section Tree {
+    background-color: {{bg_input}};
+    color: {{fg}};
+}
+
+/* Áreas de texto dentro de painéis (ex.: resultados em modo Text) */
+.MPart Composite > StyledText {
+    background-color: {{bg}};
+    color: {{fg_editor}};
+}
+
+/* Campos de entrada dentro de painéis */
+.MPart DatePicker,
+.MPart DatePicker > Text,
+.MPart ScheduleDatePicker,
+.MPart ScheduleDatePicker > Text,
+.MPart CCombo,
+.MPart Spinner,
+.MPart PageBook > SashForm Label,
+.MPart SashForm > Text[style~='SWT.BORDER'] {
+    background-color: {{bg_input}};
+    color: {{fg}};
+}
+
+.MPartStack {
+    background-color: {{bg_chrome}};
+    color: {{fg}};
+}
+
+.MPartStack.active {
+    background-color: {{bg_chrome}};
+}
+
+/* Área superior */
+.MTrimBar {
+    background-color: {{bg_chrome}};
+    color: {{fg}};
+}
+
+.MToolControl {
+    background-color: {{bg_chrome}};
+    color: {{fg}};
+}
+
+/* Perspective switcher */
+.MPerspectiveStack {
+    background-color: {{bg_chrome}};
+}
+
+/* Status inferior */
+#org-eclipse-ui-trim-status {
+    background-color: {{bg_chrome}};
+    color: {{fg}};
+}
