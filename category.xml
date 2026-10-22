@@ -2,17 +2,17 @@
 
 <site>
     <feature
-        url="features/com.tiago.dbeaver.dracula.feature_0.0.0.jar"
-        id="com.tiago.dbeaver.dracula.feature"
+        url="features/com.tiago.dbeaver.themepack.feature_0.0.0.jar"
+        id="com.tiago.dbeaver.themepack.feature"
         version="0.0.0">
-        <category name="dbeaver-dracula"/>
+        <category name="dbeaver-theme-pack"/>
     </feature>
 
     <category-def
-        name="dbeaver-dracula"
-        label="Temas personalizados para DBeaver">
+        name="dbeaver-theme-pack"
+        label="DBeaver Theme Pack">
         <description>
-            Temas personalizados para a interface do DBeaver.
+            Temas escuros para a interface do DBeaver.
         </description>
     </category-def>
 </site>

@@ -1,4 +1,4 @@
-# DBeaver Dracula Theme
+# DBeaver Theme Pack
 
 Temas escuros completos para o DBeaver Community, implementados como um plugin
 Eclipse (tema CSS do e4). O plugin traz dois temas:
@@ -79,10 +79,10 @@ linha atual do editor `#343746`.
 
 ### A partir da release (recomendado)
 
-1. Baixe `dbeaver-dracula-theme-<versão>-p2.zip` na página de
-   [Releases](https://github.com/tiagofpr/dbeaver-dracula-theme/releases).
+1. Baixe `dbeaver-theme-pack-<versão>-p2.zip` na página de
+   [Releases](https://github.com/tiagofpr/dbeaver-theme-pack/releases).
 2. No DBeaver: **Help → Install New Software → Add… → Archive…** e selecione o zip.
-3. Marque **DBeaver Dracula Theme**, conclua o assistente e reinicie.
+3. Marque **DBeaver Theme Pack**, conclua o assistente e reinicie.
 4. Ative em **Window → Preferences → User Interface → Appearance → Theme** e
    escolha **Dracula** ou **Solarized Dark**.
 
@@ -114,6 +114,18 @@ selecione a pasta `dist/repository`.
 > `bundles.info` gerenciado pelo p2.
 
 Para conferir: `./install.sh --status`.
+
+### Migração do DBeaver Dracula Theme (1.x)
+
+A partir da 2.0.0 o projeto se chama **DBeaver Theme Pack** e os IDs internos
+mudaram (bundle `com.tiago.dbeaver.themepack`). Para o p2 é um plugin novo:
+
+- **Pelo `install.sh`:** a migração é automática — o plugin antigo é removido e
+  a preferência do tema ativo passa para o novo ID (com backup do arquivo).
+- **Pela interface:** antes de instalar a 2.x, remova o antigo em
+  **Help → About DBeaver → Installation Details → DBeaver Dracula Theme →
+  Uninstall**. Depois de instalar, selecione o tema novamente em
+  *Preferences → Appearance → Theme*.
 
 ## Desinstalação
 
@@ -172,8 +184,8 @@ que o p2 nunca reaproveite um artefato antigo em cache.
 O DBeaver identifica se o tema é escuro pela cor de fundo do editor de texto
 (`UIStyles.isDarkTheme`), não pelo ID do tema.
 
-Os IDs dos temas são `com.tiago.dbeaver.dracula.theme.dark` e
-`com.tiago.dbeaver.solarized.theme.dark`. A palavra `dark` é obrigatória: o motor de temas do Eclipse só pede ao GTK a variante escura
+Os IDs dos temas são `com.tiago.dbeaver.themepack.dracula.dark` e
+`com.tiago.dbeaver.themepack.solarized.dark`. A palavra `dark` é obrigatória: o motor de temas do Eclipse só pede ao GTK a variante escura
 (`Display.setDarkThemePreferred`) quando o ID contém `dark`. Sem isso, menus,
 barra de menus e realces de clique ficam claros no Linux.
 
