@@ -1,11 +1,17 @@
 # DBeaver Theme Pack
 
 Temas escuros completos para o DBeaver Community, implementados como um plugin
-Eclipse (tema CSS do e4). O plugin traz dois temas:
+Eclipse (tema CSS do e4). O plugin traz sete temas:
 
-- **Dracula** — paleta oficial [Dracula](https://draculatheme.com/).
-- **Solarized Dark** — mesmas cores do tema *Solarized Dark* do Antigravity/VS Code,
-  sobre a paleta [Solarized](https://ethanschoonover.com/solarized/).
+| Tema | Origem das cores | Editor | Palavras-chave | Strings | Números | Funções |
+|------|------------------|--------|----------------|---------|---------|---------|
+| **Dracula** | [draculatheme.com](https://draculatheme.com/) | `#282A36` | `#FF79C6` | `#F1FA8C` | `#BD93F9` | `#50FA7B` |
+| **Solarized Dark** | tema do Antigravity/VS Code ([Solarized](https://ethanschoonover.com/solarized/)) | `#002B36` | `#859900` | `#2AA198` | `#D33682` | `#268BD2` |
+| **One Dark** | Atom One Dark | `#282C34` | `#C678DD` | `#98C379` | `#D19A66` | `#61AFEF` |
+| **Nord** | [nordtheme.com](https://www.nordtheme.com/) | `#2E3440` | `#81A1C1` | `#A3BE8C` | `#B48EAD` | `#88C0D0` |
+| **Gruvbox Dark** | [morhetz/gruvbox](https://github.com/morhetz/gruvbox) | `#282828` | `#FB4934` | `#B8BB26` | `#D3869B` | `#8EC07C` |
+| **Tokyo Night** | tema do Antigravity/VS Code | `#1A1B26` | `#BB9AF7` | `#9ECE6A` | `#FF9E64` | `#7AA2F7` |
+| **Monokai** | tema do Antigravity/VS Code | `#272822` | `#F92672` | `#E6DB74` | `#AE81FF` | `#A6E22E` |
 
 O objetivo é que toda a interface do DBeaver — janela principal, Database
 Navigator, editor SQL, grade de resultados, abas, diálogos e diagramas ER —
@@ -18,9 +24,11 @@ _Em breve._ Componentes validados: janela principal, Database Navigator, editor 
 
 ## Paletas de cores
 
-As paletas completas (todos os papéis de cor) estão em
-[`themes/dracula.properties`](themes/dracula.properties) e
-[`themes/solarized-dark.properties`](themes/solarized-dark.properties).
+As paletas completas (todos os papéis de cor) estão em [`themes/`](themes/),
+um arquivo `.properties` por tema. Onde o tema original usa cores com
+transparência, elas foram misturadas ao fundo (o Eclipse não aceita alfa); nos
+temas One Dark, Nord e Tokyo Night, números de linha e valores NULL foram
+clareados com tons do próprio tema para manter a legibilidade.
 
 ### Dracula
 
@@ -84,7 +92,7 @@ linha atual do editor `#343746`.
 2. No DBeaver: **Help → Install New Software → Add… → Archive…** e selecione o zip.
 3. Marque **DBeaver Theme Pack**, conclua o assistente e reinicie.
 4. Ative em **Window → Preferences → User Interface → Appearance → Theme** e
-   escolha **Dracula** ou **Solarized Dark**.
+   escolha um dos temas.
 
 ### A partir do código-fonte
 
@@ -94,8 +102,8 @@ linha atual do editor `#343746`.
 ```
 
 Depois, no DBeaver:
-**Window → Preferences → User Interface → Appearance → Theme**, escolha
-**Dracula** ou **Solarized Dark**, aplique e reinicie.
+**Window → Preferences → User Interface → Appearance → Theme**, escolha um dos
+temas, aplique e reinicie.
 
 O `install.sh` usa o p2 director que acompanha o DBeaver. Em instalações somente
 leitura (DEB em `/usr/share/dbeaver-ce`) o plugin é instalado no perfil do
@@ -143,8 +151,7 @@ Se um dos temas estava ativo, o DBeaver volta ao tema padrão.
 ├── plugin.xml             registra os temas no ponto de extensão org.eclipse.e4.ui.css.swt.theme
 ├── themes/
 │   ├── theme.css.in       modelo do CSS, com marcadores de papel ({{bg}}, {{sql_keyword:rgb}}…)
-│   ├── dracula.properties paleta de cada tema (um arquivo por tema)
-│   ├── solarized-dark.properties
+│   ├── <tema>.properties  paleta de cada tema (um arquivo por tema)
 │   └── generate.sh        gera css/<tema>.css a partir do modelo e da paleta
 ├── css/                   CSS gerados pelo build (não versionados)
 ├── feature/               feature Eclipse (unidade instalável pelo p2)
@@ -184,8 +191,8 @@ que o p2 nunca reaproveite um artefato antigo em cache.
 O DBeaver identifica se o tema é escuro pela cor de fundo do editor de texto
 (`UIStyles.isDarkTheme`), não pelo ID do tema.
 
-Os IDs dos temas são `com.tiago.dbeaver.themepack.dracula.dark` e
-`com.tiago.dbeaver.themepack.solarized.dark`. A palavra `dark` é obrigatória: o motor de temas do Eclipse só pede ao GTK a variante escura
+Os IDs dos temas seguem o padrão `com.tiago.dbeaver.themepack.<tema>.dark`
+(ex.: `com.tiago.dbeaver.themepack.dracula.dark`). A palavra `dark` é obrigatória: o motor de temas do Eclipse só pede ao GTK a variante escura
 (`Display.setDarkThemePreferred`) quando o ID contém `dark`. Sem isso, menus,
 barra de menus e realces de clique ficam claros no Linux.
 
